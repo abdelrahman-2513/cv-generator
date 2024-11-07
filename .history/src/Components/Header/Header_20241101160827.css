@@ -1,0 +1,40 @@
+.header-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  /* padding: 8px; */
+  padding: 8px 5px 8px 0px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-color);
+}
+.header-btn {
+  background-color: var(--color-soft);
+  color: var(--primary-color);
+  color: var(--color-bg);
+}
+
+/* ---------------------------------------------------- Logo Styles --------------------------------------------- */
+.logo {
+  grid-area: logo;
+  display: flex;
+  width: 200px;
+  align-items: center;
+  box-sizing: border-box;
+  height: 50px;
+  object-fit: contain;
+  justify-content: center;
+}
+.logo a {
+  height: 100%;
+}
+i {
+  font-size: medium !important;
+}
+.logo img {
+  max-width: -webkit-fill-available;
+  max-height: -webkit-fill-available;
+  height: 100%;
+  width: auto;
+  height: auto;
+}
