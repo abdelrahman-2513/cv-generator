@@ -26,7 +26,16 @@ function Register() {
   }
   return (
     <div className="Register-page" onContextMenu={(e) => e.preventDefault()}>
-      <div className="image-container"></div>
+      <div className="left-intro">
+        <h2>Welcome to CV Builder</h2>
+        <p>
+          Simplify your job application process with our easy-to-use CV generator tool.
+          Create, manage, and download your professional CVs in minutes.
+        </p>
+        <p>
+          Don't Have account? Signup and start creating your professional CV.
+        </p>
+      </div>
       <div className="Register-form">
         <div className="form-title">
           <div className="logo">

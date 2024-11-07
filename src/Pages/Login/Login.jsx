@@ -12,7 +12,6 @@ function Login() {
 
   function HandleLoginForm(e) {
     e.preventDefault();
-    //console.log(email, password);
     if (email.length > 0 && password.length > 0) {
       toast.loading("Logging in...", { id: 1 });
       login({ email, password });
@@ -24,9 +23,20 @@ function Login() {
       toast.error("Please Enter Valid Email or Password!");
     }
   }
+
   return (
     <div className="login-page" onContextMenu={(e) => e.preventDefault()}>
-      <div className="image-container"></div>
+      <div className="left-intro">
+        <h2>Welcome to CV Builder</h2>
+        <p>
+          Simplify your job application process with our easy-to-use CV generator tool.
+          Create, manage, and download your professional CVs in minutes.
+        </p>
+        <p>
+          Already have an account? Log in to access your saved CVs or start a new one.
+        </p>
+      </div>
+      
       <div className="login-form">
         <div className="form-title">
           <div className="logo">
@@ -35,7 +45,6 @@ function Login() {
         </div>
         <form>
           <h3>Welcome Back!</h3>
-
           <div>
             <label htmlFor="email">Email</label>
             <input
@@ -55,7 +64,6 @@ function Login() {
           <div className="link">
             <a href="/register">Create one?</a>
           </div>
-
           <button
             onClick={(e) => HandleLoginForm(e)}
             className="btn btn-primary login-btn"

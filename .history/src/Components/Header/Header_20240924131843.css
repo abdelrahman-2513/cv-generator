@@ -49,7 +49,7 @@ svg {
 i {
   font-size: medium !important;
 }
-.logo img {
+.header-logo img {
   max-width: -webkit-fill-available;
   max-height: -webkit-fill-available;
   height: 100%;

@@ -1,17 +1,21 @@
+import "./Layout.css"
 import {
   createBrowserRouter,
   Navigate,
   Outlet,
   RouterProvider,
-  useParams,
 } from "react-router-dom";
-import React, { lazy, Suspense, useEffect } from "react";
+import React, { lazy, Suspense } from "react";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import Home from "../../Pages/Home/Home";
 import useAuthStore from "../Zustand/Auth/UserAuth";
 import Header from "../../Components/Header/Header";
-/** ----------------------------------------------- Componenets ------------------------------------------------ */
+import CreateCV from "../../Pages/CreateCV/CreateCV";
+import MyCVs from "../../Pages/MyCVs/MyCVs";
+
+
+/** ----------------------------------------------- Components ------------------------------------------------ */
 
 function Main() {
   return (
@@ -23,6 +27,7 @@ function Main() {
     </>
   );
 }
+
 const ProtectedRoute = ({ children }) => {
   const user = useAuthStore((state) => state.user);
 
@@ -36,11 +41,27 @@ function Layout() {
   const routes = [
     {
       path: "/",
-      element: <ProtectedRoute children={<Main />} />,
+      element: <Main />,
       children: [
         {
           path: "/",
           element: <Home />,
+        },
+        {
+          path: "create-cv",
+          element: (
+            <ProtectedRoute>
+              <CreateCV />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "my-cvs",
+          element: (
+            <ProtectedRoute>
+              <MyCVs />
+            </ProtectedRoute>
+          ),
         },
       ],
     },
@@ -53,18 +74,7 @@ function Layout() {
       element: <Register />,
     },
   ];
-  const handleRouterError = (error) => {
-    console.error("Router encountered an error:", error);
-    if (
-      error.message.includes("Failed to fetch dynamically imported module") ||
-      error.message.includes("Importing a module script failed")
-    ) {
-      window.location.reload();
-    }
-    // Optional: Implement additional error handling logic here
-    // For example, redirect to a global error page:
-    // window.location.href = "/error";
-  };
+
   const router = createBrowserRouter(routes);
 
   return (
